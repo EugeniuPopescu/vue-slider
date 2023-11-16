@@ -1,0 +1,33 @@
+.container {
+    height: 100vh;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.current-img {
+    width: 40rem;
+    height: 30rem;
+}
+
+.container-imgs {
+    display: flex;
+    flex-direction: column;
+}
+
+.imgs {
+    width: 10rem;
+    height: 10rem;
+    opacity: 0.3;
+}
+
+.imgActive {
+    opacity: 1;
+}
+
+button {
+    border: none;
+    color: white;
+    background-color: black;
+}
