@@ -18,20 +18,24 @@
                     
                     <div class="carousel-container d-flex justify-content-center align-items-center">
                         <div class="current-img d-flex flex-column">
-                            <button @click="prev()">
-                                <span class="material-symbols-outlined">
-                                    expand_less
-                                </span>
-                            </button>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <button @click="prev()" class="pervBtn">
+                                    <span class="material-symbols-outlined">
+                                        expand_less
+                                    </span>
+                                </button>
+                            </div>
                             <img class="img" v-bind:src="slides[count].immagine" alt="">
-                            <button @click="next()">
-                                <span class="material-symbols-outlined">
-                                    expand_more
-                                </span>
-                            </button>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <button @click="next()" class="nextBtn">
+                                    <span class="material-symbols-outlined">
+                                        expand_more
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                         <div class="container-imgs">
-                            <img v-for="(slide, i) in slides" v-bind:src="slide.immagine" class="imgs" :class="{ imgActive: (i == count) }">
+                            <img v-for="(slide, i) in slides" v-bind:src="slide.immagine" class="imgs" :class="{ imgActive: (i == count) }">                            
                         </div>
                     </div>
                 </div>

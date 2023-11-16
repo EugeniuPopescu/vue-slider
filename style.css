@@ -6,19 +6,15 @@
     position: relative;
 }
 
-.current-img {
-    width: 40rem;
-    height: 30rem;
-}
-
 .container-imgs {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .imgs {
     width: 10rem;
-    height: 10rem;
+    height: 8rem;
     opacity: 0.3;
 }
 
@@ -26,8 +22,28 @@
     opacity: 1;
 }
 
+
+/* buttons */
 button {
     border: none;
     color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+}
+
+.pervBtn {
+    top: 0em;
+}
+
+.nextBtn {
+    bottom: 0em;
+}
+
+.pervBtn:hover {
     background-color: black;
+}
+
+.nextBtn:hover {
+    background-color: black;
+    
 }
