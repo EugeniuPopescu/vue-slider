@@ -13,32 +13,49 @@
     <body class="bg-dark text-light">
         <div id="app">
 
-            <div class="container d-flex justify-content-center align-items-center bg-dark">
-                <div class=" d-flex justify-content-center align-items-center">
-                    
-                    <div class="carousel-container d-flex justify-content-center align-items-center">
-                        <div class="current-img d-flex flex-column">
-                            <div class="d-flex justify-content-center align-items-center">
-                                <button @click="prev()" class="pervBtn">
-                                    <span class="material-symbols-outlined">
-                                        expand_less
-                                    </span>
-                                </button>
-                            </div>
-                            <img class="img" v-bind:src="slides[count].immagine" alt="">
-                            <div class="d-flex justify-content-center align-items-center">
-                                <button @click="next()" class="nextBtn">
-                                    <span class="material-symbols-outlined">
-                                        expand_more
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="container-imgs">
-                            <img v-for="(slide, i) in slides" v-bind:src="slide.immagine" class="imgs" :class="{ imgActive: (i == count) }">                            
-                        </div>
-                    </div>
+            <div class="container d-flex justify-content-center align-items-center bg-dark"> 
+                <!-- slides -->
+                <div class="d-flex flex-column">
+                    <!-- titolo e descrizione -->
+                    <h1>{{ slides[count].titolo }}</h1>
+                    <p>{{ slides[count].descrizione }}</p>
+                    <!-- button intervalli -->
+                    <!-- ternary operator al click della button -->
+                    <button @click="autoPlay()">{{ intervall ? "Stop" : "Play" }}</button>
+
+                    <!-- img corrente -->
+                    <img class="img" v-bind:src="slides[count].immagine" @mouseenter="autoPlay()" @mouseleave="autoPlay()">
                 </div>
+                
+
+                
+
+                <!-- buttons & thumbnails -->
+                <div class="d-flex flex-column">
+
+                    <!-- button up -->
+                    <button @click="prev()" class="pervBtn">
+                        <span class="material-symbols-outlined">
+                            expand_less
+                        </span>
+                    </button>
+
+
+
+                    <!-- immagini thumbnails -->
+                    <div class="container-imgs">
+                        <img v-for="(slide, i) in slides" :key="i" @click="cambiaSlide(i)" :src="slide.immagine" class="imgs" :class="{ imgActive: (i == count) }">                            
+                    </div>
+
+                    <!-- button down -->
+                    <button @click="next()" class="nextBtn">
+                        <span class="material-symbols-outlined">
+                            expand_more
+                        </span>
+                    </button>
+                </div>
+                
+
             </div>
         </div>
 

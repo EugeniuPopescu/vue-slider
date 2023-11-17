@@ -21,6 +21,8 @@ const opzioni = {
                 }
             ],
             count: 0,
+            // mi metto intervallo undefined così dopo lo ricchiamo
+            intervall: undefined,
             
         }
     },
@@ -42,7 +44,28 @@ const opzioni = {
             } else {
                 this.count = lastImg;
             }
-        }
+        },
+        // scelgo le slide al click del mouse
+        cambiaSlide(n) {
+            this.count = n;
+        },
+        // intervalli 
+        autoPlay() {
+            // se non esiste, imposto l'intervallo
+            // altrimenti lo elimini
+            if (!this.intervall) {
+                this.intervall = setInterval(() => {
+                    this.next();
+                }, 2000);
+            } else {
+                clearInterval(this.intervall);
+                this.intervall = null;
+            }
+        },
+    },
+    mounted() {
+        // mi sono fatto la funzione che mi cambia immagine ogni 2 secondi
+        this.autoPlay();
     }
 };
 
